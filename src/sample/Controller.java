@@ -86,7 +86,7 @@ public class Controller implements Initializable {
                         break;
 
                     case P:
-                        if (currentCarState.getGear() != 1) {
+                        if (currentCarState.getGear() != 1 && currentCarState.getSpeed() < 10) {
                             try {
                                 forwardGear();
                             } catch (IOException e) {
@@ -96,7 +96,7 @@ public class Controller implements Initializable {
                         break;
 
                     case L:
-                        if (currentCarState.getGear() != 0) {
+                        if (currentCarState.getGear() != 0 && currentCarState.getSpeed() < 10) {
                             try {
                                 reverseGear();
                             } catch (IOException e) {
@@ -126,49 +126,50 @@ public class Controller implements Initializable {
     }
 
     private void accelerate() throws IOException {
-//        String value = addSeparator("A+");
-//        server.sendData(value.getBytes(), server.getClients().get(Server.CAR));
-//        currentCarState.setSpeed(currentCarState.getSpeed() + 1);
+        String value = addSeparator("A+");
+        server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
+        currentCarState.setSpeed(currentCarState.getSpeed() + 1);
     }
 
     private void deAccelerate() throws IOException {
-//        String value = addSeparator("A-");
-//        server.sendData(value.getBytes(), server.getClients().get(Server.CAR));
-//        currentCarState.setSpeed(currentCarState.getSpeed() - 1);
+        String value = addSeparator("A-");
+        server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
+        currentCarState.setSpeed(currentCarState.getSpeed() - 1);
     }
 
     private void steerLeft() throws IOException {
-//        String value = addSeparator("S-");
-//        server.sendData(value.getBytes(), server.getClients().get(Server.CAR));
-//        currentCarState.setSteerAngle(currentCarState.getSteerAngle() - 1);
+        String value = addSeparator("S-");
+        server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
+        currentCarState.setSteerAngle(currentCarState.getSteerAngle() - 1);
     }
 
     private void steerRight() throws IOException {
-//        String value = addSeparator("S+");
-//        server.sendData(value.getBytes(), server.getClients().get(Server.CAR));
-//        currentCarState.setSteerAngle(currentCarState.getSteerAngle() + 1);
+        String value = addSeparator("S+");
+        server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
+        currentCarState.setSteerAngle(currentCarState.getSteerAngle() + 1);
     }
 
 
     private void hardBrake() throws IOException {
-//        String value = addSeparator("HB");
-//        server.sendData(value.getBytes(), server.getClients().get(Server.CAR));
-//        currentCarState.setSpeed(0);
+        String value = addSeparator("HB");
+        server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
+        currentCarState.setSpeed(0);
     }
 
     private void forwardGear() throws IOException {
-//        String value = addSeparator("FG");
-//        server.sendData(value.getBytes(), server.getClients().get(Server.CAR));
-//        currentCarState.setGear(1);
+        String value = addSeparator("FG");
+        server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
+        currentCarState.setGear(1);
     }
 
     private void reverseGear() throws IOException {
-//        String value = addSeparator("RG");
-//        server.sendData(value.getBytes(), server.getClients().get(Server.CAR));
-//        currentCarState.setGear(0);
+        String value = addSeparator("RG");
+        server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
+        currentCarState.setGear(0);
     }
 
     private String addSeparator(String value) {
+        value = value + "/";
         return value;
     }
 

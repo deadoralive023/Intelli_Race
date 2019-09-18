@@ -3,18 +3,21 @@ package sample;
 import org.opencv.core.Mat;
 import org.opencv.videoio.VideoCapture;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
+
+import static sample.ImageManipulation.*;
 
 public class VideoStreaming {
 
     public static String URL = "rtsp://192.168.1.1/live/ch00_1";
     private static VideoCapture capture;
     private static Mat frame = null;
-    private static boolean streamingStarted;
+    private static byte[] finalFrameByteArray;
+    public static Point point = new Point(1,1);
 
     public static void StartStreaming() {
-        streamingStarted = false;
         capture = new VideoCapture(URL);
         frame = new Mat();
         if (!capture.isOpened()) {
@@ -26,7 +29,10 @@ public class VideoStreaming {
             public void run() {
                 while (capture.isOpened()) {
                     capture.read(frame);
+                    finalFrameByteArray = BGR_TO_RGB(MatToByteArray(FishEyeToPanoramic(ResizeImage(frame), point)));
+                    //finalFrameByteArray = BGR_TO_RGB(MatToByteArray(ResizeImage(frame)));
                 }
+
             }
         });
         thread.start();
@@ -37,12 +43,12 @@ public class VideoStreaming {
         return frame;
     }
 
-    public static VideoCapture getCapture() {
-        return capture;
+    public static byte[] getFinalFrame(){
+        return finalFrameByteArray;
     }
 
-    public static boolean isStreamingStarted() {
-        return streamingStarted;
+    public static VideoCapture getCapture() {
+        return capture;
     }
 
     public static BufferedImage Mat2BufferedImage(Mat m) {

@@ -1,41 +1,24 @@
 
-ssquid:S1450"URemove the "server" field and declare it as a local variable in the relevant methods.(ÁºÒŞ8øØÆÏ-
-Fsquid:S11485"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ä“ÕÖÌ-
-Usquid:S1197"8Move the array designator from the variable to the type.( ºğM8Û ÊªÍ-
+usquid:S3776)"RRefactor this method to reduce its Cognitive Complexity from 49 to the 15 allowed.(•‘İŸüÿÿÿÿ8ïÏÓØÌ-
 "squid:SwitchLastCaseIsDefaultCheck/"YComplete cases by adding the missing enum constants or add a default case to this switch.(ÜêÆ¦8İàÓÖÌ-
-ª%squid:RedundantThrowsDeclarationCheck†"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Üà¾·ıÿÿÿÿ8‘ÚÅÏ-
-ª%squid:RedundantThrowsDeclarationCheck™"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(òı—‘üÿÿÿÿ8ê²ÆÏ-
-Wsquid:UselessImportCheck",Remove this unused import 'java.net.Socket'.(­‡àú8ˆœ¦§Í-
-csquid:UselessImportCheck"3Remove this unused import 'org.opencv.core.CvType'.(¸óÓÈüÿÿÿÿ8ô“ºÍ-
+Fsquid:S1148g"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8öµ€¾Í-
+dsquid:UnusedPrivateMethod±"2Remove this unused private "displayFrames" method.(‰˜İıÿÿÿÿ8Îˆ”ŸÎ-
+]squid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8–ì¢üÍ-
+\squid:UselessImportCheck"1Remove this unused import 'org.opencv.core.Size'.(˜„â8ô“ºÍ-
 Fsquid:S1148p"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï²¾Í-
-ª%squid:RedundantThrowsDeclarationCheckŒ"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(‹·ìÕıÿÿÿÿ8ŞíÅÏ-
-osquid:CommentedOutCodeLine“"<This block of commented-out lines of code should be removed.(ˆèÀĞùÿÿÿÿ8©ƒÆÏ-
-osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(»†Üüúÿÿÿÿ8ÏÄÅÏ-
-Fsquid:S1148]"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8öµ€¾Í-
+Fsquid:S1148?"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÊÉÕÖÌ-
 Usquid:S1068"2Remove this unused "videoStreaming" private field.(³ƒš£şÿÿÿÿ8î¬—ŸÎ-
 Fsquid:S1148S"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÅàâÖÌ-
-\squid:UselessImportCheck"1Remove this unused import 'org.opencv.core.Size'.(˜„â8ô“ºÍ-
-jsquid:CommentedOutCodeLine‡"<This block of commented-out lines of code should be removed.(º‡¯ø8‘ÚÅÏ-
-osquid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(€ƒÛÎûÿÿÿÿ8İÆÆÏ-
-_squid:UselessImportCheck"4Remove this unused import 'java.lang.reflect.Array'.(‡¡É˜8ü¹‘ŸÎ-
-Hsquid:S1068"*Remove this unused "server" private field.(ÁºÒŞ8øØÆÏ-
 esquid:UselessImportCheck":Remove this unused import 'java.awt.image.DataBufferByte'.(»‰¯ú8Œ¦€§Í-
-jsquid:UselessImportCheck":Remove this unused import 'java.net.UnknownHostException'.(Ú·¬˜úÿÿÿÿ8¯²ŒÎ-
-]squid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8–ì¢üÍ-
-bsquid:UselessImportCheck"7Remove this unused import 'org.opencv.imgproc.Imgproc'.(ââ®Ç8ô“ºÍ-
-Fsquid:S1148g"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8öµ€¾Í-
-usquid:S3776)"RRefactor this method to reduce its Cognitive Complexity from 47 to the 15 allowed.(•‘İŸüÿÿÿÿ8ïÏÓØÌ-
-¥%squid:RedundantThrowsDeclarationCheckŸ"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ğÔ¼Á8İÆÆÏ-
-ª%squid:RedundantThrowsDeclarationCheck’"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(³¡íÇşÿÿÿÿ8©ƒÆÏ-
-^squid:UnusedPrivateMethod«"1Remove this unused private "addSeparator" method.(÷ƒ–«8øØÆÏ-
-ª%squid:RedundantThrowsDeclarationCheck¥"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(º·Ô½ùÿÿÿÿ8øØÆÏ-
-Fsquid:S1148?"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÊÉÕÖÌ-
-osquid:CommentedOutCodeLineš"<This block of commented-out lines of code should be removed.(Çœÿ”ûÿÿÿÿ8ê²ÆÏ-
-asquid:UselessImportCheck"1Remove this unused import 'java.net.InetAddress'.(ë³ƒÒÿÿÿÿÿ8§¨Š§Í-
-Ksquid:S1604,"(Make this anonymous inner class a lambda(±©¦¿ÿÿÿÿÿ8»ûëÔÌ-
 Fsquid:S1148I"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8í­âÖÌ-
-osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ª­ÏÙûÿÿÿÿ8ŞíÅÏ-
+jsquid:UselessImportCheck":Remove this unused import 'java.net.UnknownHostException'.(Ú·¬˜úÿÿÿÿ8¯²ŒÎ-
+Usquid:S1197"8Move the array designator from the variable to the type.( ºğM8Û ÊªÍ-
+_squid:UselessImportCheck"4Remove this unused import 'java.lang.reflect.Array'.(‡¡É˜8ü¹‘ŸÎ-
+Ksquid:S1604,"(Make this anonymous inner class a lambda(±©¦¿ÿÿÿÿÿ8»ûëÔÌ-
+csquid:UselessImportCheck"3Remove this unused import 'org.opencv.core.CvType'.(¸óÓÈüÿÿÿÿ8ô“ºÍ-
+Fsquid:S11485"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ä“ÕÖÌ-
+Wsquid:UselessImportCheck",Remove this unused import 'java.net.Socket'.(­‡àú8ˆœ¦§Í-
+asquid:UselessImportCheck"1Remove this unused import 'java.net.InetAddress'.(ë³ƒÒÿÿÿÿÿ8§¨Š§Í-
+bsquid:UselessImportCheck"7Remove this unused import 'org.opencv.imgproc.Imgproc'.(ââ®Ç8ô“ºÍ-
 jsquid:S00112|"FDefine and throw a dedicated exception instead of using a generic one.(«‡é§ûÿÿÿÿ8¯²ŒÎ-
-ª%squid:RedundantThrowsDeclarationCheck€"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Ñ†›¥şÿÿÿÿ8ÏÄÅÏ-
-jsquid:CommentedOutCodeLine¦"<This block of commented-out lines of code should be removed.(‡¢è8øØÆÏ-
-dsquid:UnusedPrivateMethod°"2Remove this unused private "displayFrames" method.(‰˜İıÿÿÿÿ8Îˆ”ŸÎ-
+Fsquid:S1148]"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8öµ€¾Í-

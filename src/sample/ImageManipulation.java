@@ -1,14 +1,15 @@
 package sample;
 
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
-import org.opencv.core.Size;
+import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
+import java.awt.Point;
+import java.awt.image.BufferedImage;
+
 public class ImageManipulation {
 
-    public static Mat FishEyeToPanoramic(Mat frame, int x, int y){
+    public static Mat FishEyeToPanoramic(Mat frame, Point point){
         double width = frame.rows();
         double height = frame.cols();
         double hh = height / 2;
@@ -21,9 +22,9 @@ public class ImageManipulation {
         double theta;
         for (int i = 1; i < height; i++) {
             for (int j = 1; j < width; j++) {
-                double newx = i - hw + x;
-                double newy = j - hh + y;
-                double distance = Math.pow((newx * newx + newy * newy), 1 / 2);
+                double newX = i - hw + point.x;
+                double newY = j - hh + point.y;
+                double distance = Math.pow((newX * newX + newY * newY), 1 / 2);
                 double r = distance / r1;
                 if (r == 0) {
                     theta = 1;
@@ -31,18 +32,17 @@ public class ImageManipulation {
                 else {
                     theta = Math.atan(r) / r;
                 }
-                int sourcex = (int)Math.round(hw + theta * newx * zoom);
-                int sourcey = (int)Math.round(hh + theta * newy * zoom);
-                panoramicFrame.put(i,j, frame.get(sourcex, sourcey));
+                int sourceX = (int)Math.round(hw + theta * newX * zoom);
+                int sourceY = (int)Math.round(hh + theta * newY * zoom);
+                panoramicFrame.put(i,j, frame.get(sourceX, sourceY));
             }
         }
         return panoramicFrame;
     }
 
-    public static Mat resizeImage(Mat frame, int width, int height){
-        Mat resizedImage = new Mat(width, height, CvType.CV_8UC3);
-        Size sz = new Size(Server.IMG_WIDTH, Server.IMG_HEIGHT);
-        Imgproc.resize( frame, resizedImage, sz,Imgproc.INTER_AREA);
+    public static Mat ResizeImage(Mat frame){
+        Mat resizedImage = new Mat(Server.IMG_WIDTH, Server.IMG_HEIGHT, CvType.CV_8UC3);
+        Imgproc.resize(frame, resizedImage, new Size(Server.IMG_WIDTH,Server.IMG_HEIGHT),Imgproc.INTER_AREA);
         return resizedImage;
     }
 
@@ -50,5 +50,17 @@ public class ImageManipulation {
         byte[] buff = new byte[(int) (frame.total() * frame.channels())];
         frame.get(0, 0, buff);
         return buff;
+    }
+
+
+
+    public static byte[] BGR_TO_RGB(byte[] BGR){
+        byte[] RGB = new byte[BGR.length];
+        for(int i = 0; i < BGR.length; i = i + 3){
+            RGB[i] = BGR[i + 2];
+            RGB[i + 1] = BGR[i + 1];
+            RGB[i + 2] = BGR[i];
+        }
+        return RGB;
     }
 }
