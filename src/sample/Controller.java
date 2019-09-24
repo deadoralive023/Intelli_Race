@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
@@ -25,7 +26,7 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    private Server server;
+    private Server server = null;
 
     private VideoStreaming videoStreaming;
     byte receivedData[];
@@ -35,12 +36,55 @@ public class Controller implements Initializable {
     private Pane pane;
 
     @FXML
+    private Text serverStatusText, carStatusText, vrStatusText;
+
+    @FXML
     private ImageView imageView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         currentCarState = new CarState();
+        pane.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                switch (keyEvent.getCode()){
+                    case A:
+                        currentCarState.setSteeringLeft(false);
+                        Thread thread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(500);
+                                    if(!currentCarState.isSteeringLeft()){
+                                        steerBalance();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        thread.start();
+
+                    case D:
+                        currentCarState.setSteeringRight(false);
+                        thread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(500);
+                                    if(!currentCarState.isSteeringRight()){
+                                        steerBalance();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        thread.start();
+                }
+            }
+        });
         pane.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
@@ -48,8 +92,8 @@ public class Controller implements Initializable {
                     case W:
                         if (currentCarState.getSpeed() < CarState.MAX_SPEED) {
                             try {
-                                accelerate();
-                            } catch (IOException e) {
+                                accelerate(currentCarState.getSpeed() + 1);
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
@@ -58,7 +102,7 @@ public class Controller implements Initializable {
                     case S:
                         if (currentCarState.getSpeed() > 0) {
                             try {
-                                deAccelerate();
+                                deAccelerate(currentCarState.getSpeed() - 1);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -66,9 +110,9 @@ public class Controller implements Initializable {
                         break;
 
                     case A:
-                        if (currentCarState.getSteerAngle() > -CarState.MAX_STEERING_ANGLE) {
+                        if ((currentCarState.getSteerAngle() > -CarState.MAX_STEERING_ANGLE) && currentCarState.getSpeed() != 0) {
                             try {
-                                steerLeft();
+                                steerLeft(currentCarState.getSteerAngle() - 1);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -76,17 +120,17 @@ public class Controller implements Initializable {
                         break;
 
                     case D:
-                        if (currentCarState.getSteerAngle() < CarState.MAX_STEERING_ANGLE) {
+                        if ((currentCarState.getSteerAngle() < CarState.MAX_STEERING_ANGLE)  && currentCarState.getSpeed() != 0) {
                             try {
-                                steerRight();
+                                steerRight(currentCarState.getSteerAngle() + 1);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
                         break;
 
-                    case P:
-                        if (currentCarState.getGear() != 1 && currentCarState.getSpeed() < 10) {
+                    case F:
+                        if (currentCarState.getGear() != 1 && currentCarState.getSpeed() == 0) {
                             try {
                                 forwardGear();
                             } catch (IOException e) {
@@ -95,8 +139,8 @@ public class Controller implements Initializable {
                         }
                         break;
 
-                    case L:
-                        if (currentCarState.getGear() != 0 && currentCarState.getSpeed() < 10) {
+                    case R:
+                        if (currentCarState.getGear() != 0 && currentCarState.getSpeed() == 0) {
                             try {
                                 reverseGear();
                             } catch (IOException e) {
@@ -105,48 +149,96 @@ public class Controller implements Initializable {
                         }
                         break;
 
-                    case B:
+                    case E:
+                        if(currentCarState.getSpeed() != 0) {
                             try {
-                               hardBrake();
+                                hardBrake();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
+                        }
                         break;
+
 
                 }
             }
         });
 
+
+        //Set Status Text
+        setStatus();
+
+    }
+
+    private void setStatus(){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean isConnected = false;
+                while (true){
+                    //displayFrames(VideoStreaming.getFrame());
+                    if(Server.isCarConnected && !isConnected){
+                        carStatusText.setText("Connected");
+                        carStatusText.setStyle("-fx-font-color: blue;");
+                        isConnected = true;
+                    }
+                    if(!Server.isCarConnected && isConnected){
+                        carStatusText.setText("Not Connected");
+                        carStatusText.setStyle("-fx-font-color: red;");
+                        isConnected = false;
+                    }
+                    if(Server.isVrConnected){
+                        vrStatusText.setText("Connected");
+                        vrStatusText.setStyle("-fx-font-color: blue;");
+                    }
+                }
+            }
+        });
+        thread.start();
     }
 
 
     @FXML
-    private void startServer() throws Exception {
-        server = new Server();
+    private void startServer() {
+        try {
+            if(server == null) {
+                server = new Server();
+                serverStatusText.setText("Connected");
+                serverStatusText.setStyle("-fx-font-color: blue;");
+            }
+        }
+        catch (Exception e){
+            serverStatusText.setText("Could't Connect");
+            e.printStackTrace();
+        }
     }
 
-    private void accelerate() throws IOException {
+    private void accelerate(int speed) throws IOException {
         String value = addSeparator("A+");
         server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
-        currentCarState.setSpeed(currentCarState.getSpeed() + 1);
+        currentCarState.setSpeed(speed);
+        currentCarState.setSteerAngle(0);
     }
 
-    private void deAccelerate() throws IOException {
+    private void deAccelerate(int speed) throws IOException {
         String value = addSeparator("A-");
         server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
-        currentCarState.setSpeed(currentCarState.getSpeed() - 1);
+        currentCarState.setSpeed(speed);
+        currentCarState.setSteerAngle(0);
     }
 
-    private void steerLeft() throws IOException {
+    private void steerLeft(int steerAngle) throws IOException {
+        currentCarState.setSteeringLeft(true);
         String value = addSeparator("S-");
         server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
-        currentCarState.setSteerAngle(currentCarState.getSteerAngle() - 1);
+        currentCarState.setSteerAngle(steerAngle);
     }
 
-    private void steerRight() throws IOException {
+    private void steerRight(int steerAngle) throws IOException {
+        currentCarState.setSteeringRight(true);
         String value = addSeparator("S+");
         server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
-        currentCarState.setSteerAngle(currentCarState.getSteerAngle() + 1);
+        currentCarState.setSteerAngle(steerAngle);
     }
 
 
@@ -154,6 +246,7 @@ public class Controller implements Initializable {
         String value = addSeparator("HB");
         server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
         currentCarState.setSpeed(0);
+        currentCarState.setSteerAngle(0);
     }
 
     private void forwardGear() throws IOException {
@@ -166,6 +259,12 @@ public class Controller implements Initializable {
         String value = addSeparator("RG");
         server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
         currentCarState.setGear(0);
+    }
+
+    private void steerBalance() throws IOException {
+        String value = addSeparator("SB");
+        server.sendData(value.getBytes(), Server.socketList.get(Server.CAR));
+        currentCarState.setSteerAngle(0);
     }
 
     private String addSeparator(String value) {
@@ -181,72 +280,6 @@ public class Controller implements Initializable {
         imageView.setImage(image);
     }
 
-}
-
-class CarState {
-    public static final int MAX_SPEED = 100;
-    public static final float MAX_STEERING_ANGLE = 45;
-    private int speed;
-    private float steerAngle;
-    private int gear;
-    private int brake;
-    private boolean isHardBrake;
-
-    CarState(){
-        this.speed = 0;
-        this.steerAngle = 0;
-        this.gear = 1;
-        brake = 0;
-        isHardBrake = false;
-    }
-
-    CarState(int acceleration, int steerAngle, int gear, int brake, boolean isHardBrake){
-        this.speed = acceleration;
-        this.steerAngle = steerAngle;
-        this.gear = gear;
-        this.brake = brake;
-        this.isHardBrake = isHardBrake;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public int getGear() {
-        return gear;
-    }
-
-    public float getSteerAngle() {
-        return steerAngle;
-    }
-
-    public int getBrake() {
-        return brake;
-    }
-
-    public boolean isHardBrake() {
-        return isHardBrake;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public void setGear(int gear) {
-        this.gear = gear;
-    }
-
-    public void setSteerAngle(float steerAngle) {
-        this.steerAngle = steerAngle;
-    }
-
-    public void setBrake(int brake) {
-        this.brake = brake;
-    }
-
-    public void setHardBrake(boolean hardBrake) {
-        isHardBrake = hardBrake;
-    }
 }
 
 

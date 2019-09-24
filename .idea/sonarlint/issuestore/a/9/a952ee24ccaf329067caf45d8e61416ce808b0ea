@@ -1,24 +1,40 @@
 
-usquid:S3776)"RRefactor this method to reduce its Cognitive Complexity from 49 to the 15 allowed.(•‘İŸüÿÿÿÿ8ïÏÓØÌ-
-"squid:SwitchLastCaseIsDefaultCheck/"YComplete cases by adding the missing enum constants or add a default case to this switch.(ÜêÆ¦8İàÓÖÌ-
-Fsquid:S1148g"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8öµ€¾Í-
-dsquid:UnusedPrivateMethod±"2Remove this unused private "displayFrames" method.(‰˜İıÿÿÿÿ8Îˆ”ŸÎ-
-]squid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8–ì¢üÍ-
-\squid:UselessImportCheck"1Remove this unused import 'org.opencv.core.Size'.(˜„â8ô“ºÍ-
-Fsquid:S1148p"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï²¾Í-
-Fsquid:S1148?"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÊÉÕÖÌ-
-Usquid:S1068"2Remove this unused "videoStreaming" private field.(³ƒš£şÿÿÿÿ8î¬—ŸÎ-
-Fsquid:S1148S"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÅàâÖÌ-
-esquid:UselessImportCheck":Remove this unused import 'java.awt.image.DataBufferByte'.(»‰¯ú8Œ¦€§Í-
-Fsquid:S1148I"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8í­âÖÌ-
-jsquid:UselessImportCheck":Remove this unused import 'java.net.UnknownHostException'.(Ú·¬˜úÿÿÿÿ8¯²ŒÎ-
-Usquid:S1197"8Move the array designator from the variable to the type.( ºğM8Û ÊªÍ-
-_squid:UselessImportCheck"4Remove this unused import 'java.lang.reflect.Array'.(‡¡É˜8ü¹‘ŸÎ-
-Ksquid:S1604,"(Make this anonymous inner class a lambda(±©¦¿ÿÿÿÿÿ8»ûëÔÌ-
-csquid:UselessImportCheck"3Remove this unused import 'org.opencv.core.CvType'.(¸óÓÈüÿÿÿÿ8ô“ºÍ-
-Fsquid:S11485"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ä“ÕÖÌ-
-Wsquid:UselessImportCheck",Remove this unused import 'java.net.Socket'.(­‡àú8ˆœ¦§Í-
-asquid:UselessImportCheck"1Remove this unused import 'java.net.InetAddress'.(ë³ƒÒÿÿÿÿÿ8§¨Š§Í-
-bsquid:UselessImportCheck"7Remove this unused import 'org.opencv.imgproc.Imgproc'.(ââ®Ç8ô“ºÍ-
-jsquid:S00112|"FDefine and throw a dedicated exception instead of using a generic one.(«‡é§ûÿÿÿÿ8¯²ŒÎ-
-Fsquid:S1148]"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8öµ€¾Í-
+Ksquid:S16040"(Make this anonymous inner class a lambda(à”àƒÿÿÿÿÿ8ß¬îöÕ-
+\squid:UselessImportCheck"1Remove this unused import 'org.opencv.core.Size'.(˜„â8ô“ºÍ-
+csquid:UselessImportCheck"3Remove this unused import 'org.opencv.core.CvType'.(¸óÓÈüÿÿÿÿ8ô“ºÍ-
+Isquid:S1659'"+Declare "carStatusText" on a separate line.(¥éë8²Ï«ƒÖ-
+Fsquid:S1148P"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ß¬îöÕ-
+usquid:S3776-"RRefactor this method to reduce its Cognitive Complexity from 73 to the 15 allowed.(•‘İŸüÿÿÿÿ8ïÏÓØÌ-
+isquid:S13013"KReplace this "switch" statement by "if" statements to increase readability.(ÜêÆ¦8ß¬îöÕ-
+i
+squid:S1284"LEnd this switch case with an unconditional break, return or throw statement.(–Áèæ8ß¬îöÕ-
+osquid:CommentedOutCodeLine³"<This block of commented-out lines of code should be removed.(ıõÉüûÿÿÿÿ8Åıû™Ö-
+isquid:S1192µ"JDefine a constant instead of duplicating this literal "Connected" 3 times.(æ¨Áú8ÊµŞƒÖ-
+Esquid:S16046"(Make this anonymous inner class a lambda(ô§ê8ß¬îöÕ-
+dsquid:UnusedPrivateMethod”"2Remove this unused private "displayFrames" method.(‰˜İıÿÿÿÿ8Åıû™Ö-
+jsquid:UselessImportCheck":Remove this unused import 'java.net.UnknownHostException'.(Ú·¬˜úÿÿÿÿ8¯²ŒÎ-
+Fsquid:S1604®"(Make this anonymous inner class a lambda(ô§ê8ÊµŞƒÖ-
+bsquid:UselessImportCheck"7Remove this unused import 'org.opencv.imgproc.Imgproc'.(ââ®Ç8ô“ºÍ-
+Fsquid:S1148?"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ß¬îöÕ-
+"squid:SwitchLastCaseIsDefaultCheck["YComplete cases by adding the missing enum constants or add a default case to this switch.(ÜêÆ¦8İàÓÖÌ-
+Usquid:S1068"2Remove this unused "videoStreaming" private field.(³ƒš£şÿÿÿÿ8î¬—ŸÎ-
+asquid:UselessImportCheck"1Remove this unused import 'java.net.InetAddress'.(ë³ƒÒÿÿÿÿÿ8§¨Š§Í-
+usquid:S1192¶"VDefine a constant instead of duplicating this literal "-fx-font-color: blue;" 3 times.(„±ñÕ8ÊµŞƒÖ-
+Fsquid:S1148u"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8í­âÖÌ-
+"squid:SwitchLastCaseIsDefaultCheck3"YComplete cases by adding the missing enum constants or add a default case to this switch.(ÜêÆ¦8ß¬îöÕ-
+Ksquid:S1604X"(Make this anonymous inner class a lambda(±©¦¿ÿÿÿÿÿ8»ûëÔÌ-
+Wsquid:UselessImportCheck",Remove this unused import 'java.net.Socket'.(­‡àú8ˆœ¦§Í-
+esquid:UselessImportCheck":Remove this unused import 'java.awt.image.DataBufferByte'.(»‰¯ú8Œ¦€§Í-
+Fsquid:S1604G"(Make this anonymous inner class a lambda(¼­¤¯8ß¬îöÕ-
+]squid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8–ì¢üÍ-
+_squid:UselessImportCheck"4Remove this unused import 'java.lang.reflect.Array'.(‡¡É˜8ü¹‘ŸÎ-
+Gsquid:S1148‰"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8öµ€¾Í-
+Gsquid:S1148“"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8öµ€¾Í-
+Fsquid:S2189²""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8ÊµŞƒÖ-
+Fsquid:S1148a"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ä“ÕÖÌ-
+Fsquid:S1148k"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÊÉÕÖÌ-
+Fsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÅàâÖÌ-
+Hsquid:S1659'"*Declare "vrStatusText" on a separate line.(¥éë8²Ï«ƒÖ-
+Usquid:S1197 "8Move the array designator from the variable to the type.( ºğM8Û ÊªÍ-
+Gsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï²¾Í-
+Gsquid:S1148Ô"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8±Ï®ƒÖ-

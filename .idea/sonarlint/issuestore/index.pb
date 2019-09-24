@@ -9262,3 +9262,5 @@ D
 IntelliRace.iml,9/2/92365d65db80e363f040fe70e13e2475b5c2c015
 C
 hs_err_pid23417.log,3/c/3cd380166327f1525e2f898b24f700778980724d
+H
+src/sample/CarState.java,9/d/9db9b2c8485d0430e91b0a76c0bf95646fff0ca3

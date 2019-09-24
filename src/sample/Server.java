@@ -12,11 +12,12 @@ import static sample.ImageManipulation.*;
 
 public class Server {
     private ServerSocket serverSocket;
-    public static int PORT = 8888;
-    public static final String IP = "192.168.1.22";
-    public static final String IP_VR = "192.168.1.22";
-    public static final String IP_CAR = "192.168.1.20";
-    public static int BUFF_SIZE = 1000;
+    private static int PORT = 8888;
+//    private String IP = "192.168.1.22";
+//    private String IP = "192.168.43.22";
+    private String IP = "172.20.10.5";
+    private String IP_VR;
+    private String IP_CAR;
     private byte[] receivedData = null;
     public static int IMG_SIZE;
     public static int IMG_WIDTH = 100;
@@ -24,6 +25,9 @@ public class Server {
     public static String CAR = "Car";
     public static Map<String, Socket> socketList;
     public static boolean isStreamingStarted = false;
+    public static boolean isVrConnected = false;
+    int count = 0;
+    public static boolean isCarConnected = false;
 
 
     public Server() throws Exception {
@@ -32,7 +36,6 @@ public class Server {
         serverSocket = new ServerSocket(PORT, 100, InetAddress.getByName(IP));
         System.out.println("Server Started");
         VideoStreaming.StartStreaming();
-
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -41,6 +44,8 @@ public class Server {
                     try {
                         clientSocket = serverSocket.accept();
                         handleClientRequest(clientSocket);
+//                     wdwa
+
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -50,6 +55,7 @@ public class Server {
         thread.start();
     }
 
+
     private void handleClientRequest(Socket socket) {
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -57,24 +63,26 @@ public class Server {
                 try {
                     int size = socket.getInputStream().read(receivedData);
                     if (size > 0) {
-                        switch (receivedData[0]) {
-                            case 'R':
-                                Point resolution = decodeByteArray(receivedData);
-                                IMG_WIDTH = (int) resolution.x;
-                                IMG_HEIGHT = (int) resolution.y;
-                                IMG_SIZE = IMG_WIDTH * IMG_HEIGHT * 3;
-                                System.out.println(IMG_WIDTH + "    " + IMG_HEIGHT);
-                                Thread.sleep(1000);
-                                sendFrame(socket, new java.awt.Point(0,0));
-                                break;
-                            case 'P':
-                                VideoStreaming.point = decodeByteArray(receivedData);
-                                sendFrame(socket, new Point(receivedData[2], receivedData[3]));
-                                break;
-                            case 'C':
-                                //Car
-                                socketList.put(CAR, socket);
-                                break;
+                        if(receivedData[0] == 'R'){
+                            IP_VR = socket.getInetAddress().toString().substring(1);
+                            Point resolution = decodeByteArray(receivedData);
+                            IMG_WIDTH = (int) resolution.x;
+                            IMG_HEIGHT = (int) resolution.y;
+                            IMG_SIZE = IMG_WIDTH * IMG_HEIGHT * 3;
+                            System.out.println(IMG_WIDTH + "    " + IMG_HEIGHT);
+                            Thread.sleep(1000);
+                            sendFrame(socket);
+                            isVrConnected = true;
+                        }
+                        else if(receivedData[0] == 'P'){
+                            IP_VR = socket.getInetAddress().toString().substring(1);
+                            VideoStreaming.point = decodeByteArray(receivedData);
+                            sendFrame(socket);
+                        }
+                        else if(receivedData[0] == 'C'){
+                            IP_CAR = socket.getInetAddress().toString().substring(1);
+                            socketList.put(CAR, socket);
+                            isCarConnected = true;
                         }
                     }
 
@@ -88,61 +96,43 @@ public class Server {
     }
 
     public void sendData(byte[] data, Socket clientSocket) throws IOException {
-        switch (clientSocket.getInetAddress().toString().substring(1)) {
-            case IP_VR:
-                try {
-                    DataOutputStream dataOutputStream = new DataOutputStream(clientSocket.getOutputStream());
-                    dataOutputStream.write(data);
-                    dataOutputStream.flush();
-                    dataOutputStream.close();
-                    clientSocket.close();
-                    //System.out.println("S");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-//                        byte[] packet;
-//                        int index = 0;
-//                        DataOutputStream dataOutputStream = null;
-//                        try {
-//                            dataOutputStream = new DataOutputStream(clientSocket.getOutputStream());
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                        while (index < IMG_SIZE) {
-//                            packet = Arrays.copyOfRange(data, index, (index = (index + BUFF_SIZE <= IMG_SIZE) ? index + BUFF_SIZE :  data.length));
-//                            try {
-//                                dataOutputStream.write(packet);
-//                                dataOutputStream.flush();
-//                            } catch (Exception e) {
-//                                e.printStackTrace();
-//                            }
-//                        }
-                break;
-            case IP_CAR:
-                try {
-                    DataOutputStream dataOutputStream = new DataOutputStream(clientSocket.getOutputStream());
-                    dataOutputStream.write(data);
-                    dataOutputStream.flush();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
-            default:
-                break;
-
+        if(clientSocket.getInetAddress().toString().substring(1).equals(IP_VR)){
+            try {
+                DataOutputStream dataOutputStream = new DataOutputStream(clientSocket.getOutputStream());
+                dataOutputStream.write(data);
+                dataOutputStream.flush();
+                dataOutputStream.close();
+                clientSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
+        else if(clientSocket.getInetAddress().toString().substring(1).equals(IP_CAR)) {
+            try {
+                DataOutputStream dataOutputStream = new DataOutputStream(clientSocket.getOutputStream());
+                dataOutputStream.write(data);
+                dataOutputStream.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    private void sendFrame(Socket socket, Point point) {
+    private void sendFrame(Socket socket) {
         try {
-            sendData(VideoStreaming.getFinalFrame(), socket);
-            //sendData(BGR_TO_RGB(MatToByteArray(ResizeImage(FishEyeToPanoramic(frame,new Point(1,1))))), socket);
-//                    sendData(BGR_TO_RGB(MatToByteArray(ResizeImage(frame))), socket);
-//                    sendData(BGR_TO_RGB(MatToByteArray(FishEyeToPanoramic(ResizeImage(frame), point)), socket));
+             byte[] frame = CopyArray(VideoStreaming.finalFrameByteArray);
+             sendData(frame, socket);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private byte[] CopyArray(byte[] b1){
+        byte[] result = new byte[b1.length];
+        for(int i = 0; i < result.length; i++){
+            result[i] = b1[i];
+        }
+        return result;
     }
 
 
@@ -193,28 +183,4 @@ public class Server {
     }
 
 
-}
-
-class ClientSocket{
-    private String ip;
-    private int port;
-    private String clientName;
-
-    public ClientSocket(String ip, int port, String clientName){
-        this.ip = ip;
-        this.port = port;
-        this.clientName = clientName;
-    }
-
-    public int getPort() {
-        return port;
-    }
-
-    public String getIp() {
-        return ip;
-    }
-
-    public String getClientName() {
-        return clientName;
-    }
 }

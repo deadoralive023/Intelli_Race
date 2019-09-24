@@ -11,11 +11,14 @@ import static sample.ImageManipulation.*;
 
 public class VideoStreaming {
 
-    public static String URL = "rtsp://192.168.1.1/live/ch00_1";
+//    public static String URL = "rtsp://192.168.1.1/live/ch00_1";
+//    public static String URL = "rtsp://192.168.43.215:8080/h264_ulaw.sdp";
+    public static String URL = "rtsp://10.76.218.176:8554/live";
     private static VideoCapture capture;
     private static Mat frame = null;
-    private static byte[] finalFrameByteArray;
+    public static byte[] finalFrameByteArray;
     public static Point point = new Point(1,1);
+
 
     public static void StartStreaming() {
         capture = new VideoCapture(URL);
@@ -29,7 +32,13 @@ public class VideoStreaming {
             public void run() {
                 while (capture.isOpened()) {
                     capture.read(frame);
-                    finalFrameByteArray = BGR_TO_RGB(MatToByteArray(FishEyeToPanoramic(ResizeImage(frame), point)));
+//                    finalFrameByteArray = BGR_TO_RGB(MatToByteArray(FishEyeToPanoramic(ResizeImage(frame), point)));
+                    finalFrameByteArray = BGR_TO_RGB(MatToByteArray(ResizeImage(frame)));
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     //finalFrameByteArray = BGR_TO_RGB(MatToByteArray(ResizeImage(frame)));
                 }
 
@@ -43,9 +52,6 @@ public class VideoStreaming {
         return frame;
     }
 
-    public static byte[] getFinalFrame(){
-        return finalFrameByteArray;
-    }
 
     public static VideoCapture getCapture() {
         return capture;

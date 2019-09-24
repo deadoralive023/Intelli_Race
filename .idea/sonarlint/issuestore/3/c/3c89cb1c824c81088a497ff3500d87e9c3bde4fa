@@ -1,51 +1,54 @@
 
-Ysquid:S2696A"6Make the enclosing method "static" or remove this set.(£¨ìÉùÿÿÿÿ8‚ÒÏ®Ğ-
-„"squid:ClassVariableVisibilityCheck"OMake CAR a static final constant or non-public and provide accessors if needed.(™‘‚8••÷¦Ò-
-lsquid:S3008"NRename this field "CAR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™‘‚8••÷¦Ò-
-Ysquid:S2696@"6Make the enclosing method "static" or remove this set.(ìÈ˜œùÿÿÿÿ8‚ÒÏ®Ğ-
-…"squid:ClassVariableVisibilityCheck"PMake PORT a static final constant or non-public and provide accessors if needed.(İ©æ›8‘ìŠ§Í-
-Qsquid:S1444".Make this "public static IMG_SIZE" field final(Áš¨øÿÿÿÿ8ºŠòÓ-
-"squid:ClassVariableVisibilityCheck"VMake socketList a static final constant or non-public and provide accessors if needed.(ÌŠ•¬şÿÿÿÿ8ôºì¦Ò-
+Isquid:S1905F"&Remove this unnecessary cast to "int".(ìÈ˜œùÿÿÿÿ8¦æ«Ô-
+“"squid:ClassVariableVisibilityCheck"YMake isVrConnected a static final constant or non-public and provide accessors if needed.(º¡Æ¢ÿÿÿÿÿ8íª×ƒÖ-
+Ysquid:S2696G"6Make the enclosing method "static" or remove this set.(£¨ìÉùÿÿÿÿ8¦æ«Ô-
+nsquid:S00100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áá¦ğ8·ìÔÉÔ-
+fsquid:S2259E"HA "NullPointerException" could be thrown; "resolution" is nullable here.(©Ï‡’8¦æ«Ô-
+“"squid:ClassVariableVisibilityCheck"^Make isStreamingStarted a static final constant or non-public and provide accessors if needed.(£…ÂÀ8§®ŠòÓ-
+csquid:UselessImportCheck"3Remove this unused import 'org.opencv.video.Video'.(ÿ½‹ùÿÿÿÿ8¬æ«Ô-
+Tsquid:S2696E"6Make the enclosing method "static" or remove this set.(©Ï‡’8¦æ«Ô-
+tsquid:S00116"PRename this field "IP_VR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æõûøÿÿÿÿ8®†è«Ô-
+Asquid:S11482"#Use a logger to log this exception.(Ç’Çê8šÀ€Ï-
+Fsquid:S1148~"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8™ûòÓ-
+lsquid:S00116"MRename this field "IP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñä³±8ÿšè«Ô-
+Ysquid:S2696O"6Make the enclosing method "static" or remove this set.(¿Ú°«üÿÿÿÿ8ÊÍæ«Ô-
+‹"squid:ClassVariableVisibilityCheck"VMake IMG_HEIGHT a static final constant or non-public and provide accessors if needed.(ñıõœ8èÇÛ›Î-
+xsquid:S3012…"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(Ë„›¬8·ìÔÉÔ-
+psquid:S00116"QRename this field "IP_CAR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸—‰8âñç«Ô-
+Qsquid:S1444".Make this "public static IMG_SIZE" field final(Áš¨øÿÿÿÿ8ºŠòÓ-
+lsquid:S3008"NRename this field "CAR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™‘‚8••÷¦Ò-
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ùƒğå8ßèñ™Ö-
+"squid:ClassVariableVisibilityCheck"UMake IMG_WIDTH a static final constant or non-public and provide accessors if needed.(Ú«õÆùÿÿÿÿ8èÇÛ›Î-
+Esquid:S1604<"(Make this anonymous inner class a lambda(ô§ê8Ÿ§Ï®Ğ-
+Gsquid:S1444")Make this "public static CAR" field final(™‘‚8••÷¦Ò-
+Esquid:S1604'"(Make this anonymous inner class a lambda(ô§ê8¸ó›Î-
+„"squid:ClassVariableVisibilityCheck"OMake CAR a static final constant or non-public and provide accessors if needed.(™‘‚8••÷¦Ò-
+"squid:ClassVariableVisibilityCheck"ZMake isCarConnected a static final constant or non-public and provide accessors if needed.(ÑÊŒ•8äÛ¾ƒÖ-
+wsquid:S3008"TRename this field "IMG_WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú«õÆùÿÿÿÿ8èÇÛ›Î-
+Ysquid:S2696F"6Make the enclosing method "static" or remove this set.(ìÈ˜œùÿÿÿÿ8¦æ«Ô-
+Rsquid:S1444"/Make this "public static IMG_WIDTH" field final(Ú«õÆùÿÿÿÿ8èÇÛ›Î-
+Rsquid:S1444"4Make this "public static isCarConnected" field final(ÑÊŒ•8äÛ¾ƒÖ-
+Vsquid:S1444"3Make this "public static isVrConnected" field final(º¡Æ¢ÿÿÿÿÿ8íª×ƒÖ-
+Ysquid:S2696U"6Make the enclosing method "static" or remove this set.(èàœ¥øÿÿÿÿ8Èœ¿ƒÖ-
+Csquid:S2386""%Make member "socketList" "protected".(øÌ«’8Î¶ñ¦Ò-
+Esquid:S3010""'Remove this assignment of "socketList".(øÌ«’8Î¶ñ¦Ò-
+Asquid:S1148Z"#Use a logger to log this exception.(Ç’Çê8‚ÒÏ®Ğ-
+Nsquid:S1444"0Make this "public static IMG_HEIGHT" field final(ñıõœ8èÇÛ›Î-
+ssquid:S3008"URename this field "IMG_HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñıõœ8èÇÛ›Î-
 V
-squid:S106!"9Replace this use of System.out or System.err by a logger.(¥«Öü8¸–Ò°Ï-
-Asquid:S1148R"#Use a logger to log this exception.(Ç’Çê8‚ÒÏ®Ğ-
-Ysquid:S2696G"6Make the enclosing method "static" or remove this set.(¿Ú°«üÿÿÿÿ8œ›ºúÓ-
-csquid:UselessImportCheck"3Remove this unused import 'org.opencv.video.Video'.(ÿ½‹ùÿÿÿÿ8¯ÿšóÓ-
-Gsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8™ûòÓ-
-wsquid:S3008"TRename this field "IMG_WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú«õÆùÿÿÿÿ8èÇÛ›Î-
-Csquid:S2386"%Make member "socketList" "protected".(øÌ«’8Î¶ñ¦Ò-
+squid:S106%"9Replace this use of System.out or System.err by a logger.(¥«Öü8¸–Ò°Ï-
 [
-squid:S106B"9Replace this use of System.out or System.err by a logger.(ÙÇû‘øÿÿÿÿ8şÈ¶¨Ó-
-ssquid:S3008"URename this field "IMG_HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñıõœ8èÇÛ›Î-
-Esquid:S2189'""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8Ë®°¥Î-
-Msquid:S1444"/Make this "public static BUFF_SIZE" field final(ÁÖÑ8‚ŠÓ·Ğ-
-Isquid:S1905@"&Remove this unnecessary cast to "int".(ìÈ˜œùÿÿÿÿ8¹‚óÓ-
-"squid:ClassVariableVisibilityCheck"UMake IMG_WIDTH a static final constant or non-public and provide accessors if needed.(Ú«õÆùÿÿÿÿ8èÇÛ›Î-
-Hsquid:S1444"*Make this "public static PORT" field final(İ©æ›8‘ìŠ§Í-
-Ssquid:S1444"0Make this "public static socketList" field final(ÌŠ•¬şÿÿÿÿ8Î¶ñ¦Ò-
-"squid:ClassVariableVisibilityCheck"TMake IMG_SIZE a static final constant or non-public and provide accessors if needed.(Áš¨øÿÿÿÿ8ºŠòÓ-
-Esquid:S3010"'Remove this assignment of "socketList".(øÌ«’8Î¶ñ¦Ò-
-esquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(ÍÔ8¦Ğ›Î-
-Nsquid:S1444"0Make this "public static IMG_HEIGHT" field final(ñıõœ8èÇÛ›Î-
-Esquid:S16046"(Make this anonymous inner class a lambda(ô§ê8Ÿ§Ï®Ğ-
-Fsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Äíë²Ğ-
-msquid:S3008"ORename this field "PORT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ©æ›8‘ìŠ§Í-
-Esquid:S1604$"(Make this anonymous inner class a lambda(ô§ê8¸ó›Î-
-W"squid:SwitchLastCaseIsDefaultCheck<""Add a default case to this switch.(î¼³Æ8‚ÒÏ®Ğ-
-Psquid:S1172‰",Remove this unused method parameter "point".(éó¤¿ûÿÿÿÿ8‘Î·ñÓ-
-Asquid:S1148-"#Use a logger to log this exception.(Ç’Çê8šÀ€Ï-
-isquid:CommentedOutCodeLineg"<This block of commented-out lines of code should be removed.(‰Âîó8œÙïÓ-
-fsquid:S2259?"HA "NullPointerException" could be thrown; "resolution" is nullable here.(©Ï‡’8Ò¦íÿÓ-
-Tsquid:S2696?"6Make the enclosing method "static" or remove this set.(©Ï‡’8‚ÒÏ®Ğ-
-jsquid:CommentedOutCodeLineŒ"<This block of commented-out lines of code should be removed.(íâéµ8™ûòÓ-
-vsquid:S3008"SRename this field "IMG_SIZE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áš¨øÿÿÿÿ8ÍØ®Ğ-
-rsquid:S3008"TRename this field "BUFF_SIZE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÖÑ8‚ŠÓ·Ğ-
-Rsquid:S1444"/Make this "public static IMG_WIDTH" field final(Ú«õÆùÿÿÿÿ8èÇÛ›Î-
-“"squid:ClassVariableVisibilityCheck"^Make isStreamingStarted a static final constant or non-public and provide accessors if needed.(£…ÂÀ8§®ŠòÓ-
-Š"squid:ClassVariableVisibilityCheck"UMake BUFF_SIZE a static final constant or non-public and provide accessors if needed.(ÁÖÑ8‚ŠÓ·Ğ-
-Vsquid:S1444"8Make this "public static isStreamingStarted" field final(£…ÂÀ8§®ŠòÓ-
-‹"squid:ClassVariableVisibilityCheck"VMake IMG_HEIGHT a static final constant or non-public and provide accessors if needed.(ñıõœ8èÇÛ›Î-
-Fsquid:S1148e"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8œÙïÓ-
-Dsquid:S1905?"&Remove this unnecessary cast to "int".(©Ï‡’8¹‚óÓ-
-Gsquid:S1444")Make this "public static CAR" field final(™‘‚8••÷¦Ò-
-isquid:CommentedOutCodeLinec"<This block of commented-out lines of code should be removed.(áèÃš8çê½õÓ-
+squid:S106H"9Replace this use of System.out or System.err by a logger.(ÙÇû‘øÿÿÿÿ8¦æ«Ô-
+rsquid:S3008"ORename this field "PORT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹±ßãøÿÿÿÿ8‘ìŠ§Í-
+Fsquid:S1148k"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8®¸ï«Ô-
+Vsquid:S1444"8Make this "public static isStreamingStarted" field final(£…ÂÀ8§®ŠòÓ-
+"squid:ClassVariableVisibilityCheck"TMake IMG_SIZE a static final constant or non-public and provide accessors if needed.(Áš¨øÿÿÿÿ8ºŠòÓ-
+"squid:ClassVariableVisibilityCheck"VMake socketList a static final constant or non-public and provide accessors if needed.(ÌŠ•¬şÿÿÿÿ8ôºì¦Ò-
+Esquid:S2189*""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8Ë®°¥Î-
+Fsquid:S1148t"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ú¼í«Ô-
+Dsquid:S1905E"&Remove this unnecessary cast to "int".(©Ï‡’8¦æ«Ô-
+esquid:S00112!"FDefine and throw a dedicated exception instead of using a generic one.(ÍÔ8¦Ğ›Î-
+Ssquid:S1444"0Make this "public static socketList" field final(ÌŠ•¬şÿÿÿÿ8Î¶ñ¦Ò-
+Zsquid:UselessImportCheck"0Remove this unused import 'org.opencv.core.Mat'.(Ÿ â8şéÎ«Ô-
+vsquid:S3008"SRename this field "IMG_SIZE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áš¨øÿÿÿÿ8ÍØ®Ğ-
+Ysquid:S2696K"6Make the enclosing method "static" or remove this set.(ÏÛ‡ƒüÿÿÿÿ8Ùğ×ƒÖ-

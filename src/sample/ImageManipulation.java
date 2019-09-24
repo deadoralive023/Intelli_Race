@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 
 public class ImageManipulation {
 
+    private static Mat resizedImage = new Mat(Server.IMG_WIDTH, Server.IMG_HEIGHT, CvType.CV_8UC3);
     public static Mat FishEyeToPanoramic(Mat frame, Point point){
         double width = frame.rows();
         double height = frame.cols();
@@ -41,7 +42,9 @@ public class ImageManipulation {
     }
 
     public static Mat ResizeImage(Mat frame){
-        Mat resizedImage = new Mat(Server.IMG_WIDTH, Server.IMG_HEIGHT, CvType.CV_8UC3);
+        while (frame.rows() == 0 || frame.cols() == 0){
+            frame = VideoStreaming.getFrame();
+        }
         Imgproc.resize(frame, resizedImage, new Size(Server.IMG_WIDTH,Server.IMG_HEIGHT),Imgproc.INTER_AREA);
         return resizedImage;
     }

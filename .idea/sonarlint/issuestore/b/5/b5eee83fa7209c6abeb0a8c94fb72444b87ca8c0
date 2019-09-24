@@ -1,13 +1,13 @@
 
-ksquid:UselessImportCheck";Remove this unused import 'org.opencv.imgcodecs.Imgcodecs'.(¥è¶îşÿÿÿÿ8ŸÚ˜ïÑ-
-`squid:S2184"BCast one of the operands of this division operation to a "double".(¥‘ñ8‰à±Ò-
-rsquid:S001001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÓ“ƒşÿÿÿÿ8ÿô§ïÑ-
-usquid:S00117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½Šß‚øÿÿÿÿ8ÿô§ïÑ-
-usquid:S001179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àîşúÿÿÿÿ8ğ¡íÎÑ-
-rsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•”Ø†ıÿÿÿÿ8ÿô§ïÑ-
-rsquid:S001009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àîşúÿÿÿÿ8ÿô§ïÑ-
-msquid:S00100+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ï÷˜8ÿô§ïÑ-
-`squid:S2184"BCast one of the operands of this division operation to a "double".(ç’ıÔ8ÿô§ïÑ-
+usquid:S00117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½Šß‚øÿÿÿÿ8ÿô§ïÑ-
+rsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•”Ø†ıÿÿÿÿ8ÿô§ïÑ-
+msquid:S00100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ï÷˜8ÿô§ïÑ-
+rsquid:S001004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÓ“ƒşÿÿÿÿ8ÿô§ïÑ-
+`squid:S2184"BCast one of the operands of this division operation to a "double".(ç’ıÔ8ÿô§ïÑ-
 isquid:UselessImportCheck"9Remove this unused import 'java.awt.image.BufferedImage'.(×íĞ‡şÿÿÿÿ8Û¹ŸïÑ-
+usquid:S00117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àîşúÿÿÿÿ8ğ¡íÎÑ-
+ksquid:UselessImportCheck";Remove this unused import 'org.opencv.imgcodecs.Imgcodecs'.(¥è¶îşÿÿÿÿ8ŸÚ˜ïÑ-
 Xsquid:S1118
-":Add a private constructor to hide the implicit public one.(ú±Éÿ8øß©ïÑ-
+":Add a private constructor to hide the implicit public one.(ú±Éÿ8¥ÜŞÈÔ-
+rsquid:S00100<"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àîşúÿÿÿÿ8ÿô§ïÑ-
+`squid:S2184"BCast one of the operands of this division operation to a "double".(¥‘ñ8‰à±Ò-
